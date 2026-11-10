@@ -11,7 +11,7 @@ export const PROFILE = {
   location: "Casablanca, Maroc",
   email: "richetchibouanga0@gmail.com",
   github: "https://github.com/richeTchibouanga",
-  linkedin: null as string | null, // à compléter : https://www.linkedin.com/in/…
+  linkedin: "https://www.linkedin.com/in/jean-de-dieu-riche-tchibouanga-107539306" as string | null,
   cv: "/cv-jean-de-dieu-riche-tchibouanga.pdf",
   photo: "/images/photo.png",
   intro:
