@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* Identité visuelle : bleu marine (fonds) + bleu vif (accents), cohérente avec LeadFlow. */
+:root {
+  --navy-950: #050d1f;
+  --navy-900: #081530;
+  --navy-850: #0b1b3d;
+  --navy-800: #0f2350;
+  --navy-700: #16306a;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-300: #93c5fd;
+  --ink: #e6edf8;
+  --muted: #9fb0cc;
+  --line: rgb(147 197 253 / 0.14);
+}
+
+@theme inline {
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-850: var(--navy-850);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-accent: var(--blue-500);
+  --color-accent-strong: var(--blue-600);
+  --color-accent-light: var(--blue-400);
+  --color-accent-soft: var(--blue-300);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-sora);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--navy-950);
+  color: var(--ink);
+}
+
+::selection {
+  background: rgb(59 130 246 / 0.4);
+}
+
+/* Fond : quadrillage discret + halos bleus */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(147 197 253 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(147 197 253 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at top, black 30%, transparent 75%);
+}
+
+.glow {
+  background: radial-gradient(circle, rgb(59 130 246 / 0.35), transparent 65%);
+  filter: blur(40px);
+}
+
+/* Carte « verre » */
+.card {
+  background: linear-gradient(180deg, rgb(15 35 80 / 0.55), rgb(8 21 48 / 0.55));
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgb(96 165 250 / 0.5);
+  box-shadow: 0 18px 50px -20px rgb(59 130 246 / 0.55);
+}
+
+/* Anneau animé autour de la photo */
+.photo-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, var(--blue-500), transparent 30%, var(--blue-300), transparent 65%, var(--blue-500));
+  animation: spin 6s linear infinite;
+}
+
+/* Curseur clignotant de l'effet machine à écrire */
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: -0.12em;
+  background: var(--blue-400);
+  animation: blink 1s steps(1) infinite;
+}
+
+/* Apparition au défilement (classe ajoutée par <Reveal>) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.pulse-dot {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(74 222 128 / 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(74 222 128 / 0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Accessibilité : aucune animation si l'utilisateur l'a demandé à son système. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .photo-ring,
+  .caret,
+  .pulse-dot,
+  .float {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card,
+  .card-hover:hover {
+    transition: none;
+    transform: none;
+  }
+}
