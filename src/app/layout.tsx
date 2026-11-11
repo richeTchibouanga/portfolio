@@ -9,6 +9,8 @@ const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400",
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // Adresse publique : nécessaire pour que LinkedIn, WhatsApp, etc. trouvent l'image d'aperçu.
+  metadataBase: new URL("https://riche-tchibouanga.vercel.app"),
   title: `${PROFILE.shortName} — ${PROFILE.title}`,
   description: PROFILE.intro,
   authors: [{ name: `${PROFILE.firstName} ${PROFILE.lastName}` }],
