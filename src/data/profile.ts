@@ -100,11 +100,11 @@ export const PROJECTS: Project[] = [
     name: "PrédiMaint",
     tagline: "Maintenance prédictive d'un atelier d'usinage par machine learning",
     description:
-      "À partir des capteurs d'une machine-outil (températures, vitesse, couple, usure de l'outil), l'application prédit la panne, identifie son type, explique sa décision, recommande l'action de maintenance et chiffre le gain pour l'usine. Un projet né de mon expérience de technicien de maintenance, du cahier des charges à l'application en ligne.",
+      "À partir des capteurs d'une machine-outil (températures, vitesse, couple, usure de l'outil), l'application prédit la panne, identifie son type et explique sa décision. Elle guide ensuite le technicien pas à pas dans l'intervention, de la consignation jusqu'au compte rendu, et chiffre le gain pour l'usine. Un projet né de mon expérience de technicien de maintenance, du cahier des charges à l'application en ligne.",
     highlights: [
       "85 % des pannes détectées sur des données jamais vues, 76 % d'alertes justifiées",
       "Variables issues du métier : puissance, écart de température, contrainte de l'outil",
-      "Chaque prédiction expliquée, avec l'action de maintenance recommandée",
+      "Chaque prédiction expliquée, puis intervention guidée : consignation obligatoire, étapes à cocher, compte rendu",
       "Étude économique : −73 % de coût de maintenance (hypothèses modifiables)",
     ],
     tags: ["Python", "pandas", "scikit-learn", "Machine learning", "Streamlit", "Altair", "pytest"],
