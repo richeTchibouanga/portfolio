@@ -20,7 +20,7 @@ export const PROFILE = {
 } as const;
 
 export const STATS = [
-  { value: "1", label: "SaaS en production" },
+  { value: "2", label: "projets en ligne" },
   { value: "300+", label: "tests automatisés" },
   { value: "9", label: "certifications DataCamp" },
 ] as const;
@@ -30,6 +30,7 @@ export const ABOUT = {
     "Pendant plusieurs années, j'ai travaillé dans l'industrie, au Congo : production, maintenance préventive et corrective, respect strict des règles de sécurité. J'y ai appris à diagnostiquer méthodiquement une panne et à ne rien laisser au hasard.",
     "Grâce à une bourse de BHN Academy (Allemagne), je me forme aujourd'hui à l'ingénierie des données et de l'IA. Je mets immédiatement ces compétences en pratique sur des projets réels.",
     "Mon premier produit, LeadFlow, est un CRM SaaS complet : base de données sécurisée, interface responsive, plus de 300 tests automatisés, intégration continue et démo en ligne. La même rigueur qu'en maintenance industrielle, appliquée au logiciel.",
+    "Avec PrédiMaint, je relie mes deux métiers : un modèle de machine learning qui prédit les pannes d'un atelier d'usinage, explique ses décisions et chiffre le gain de la maintenance prédictive pour l'usine.",
   ],
   education: [
     {
@@ -94,6 +95,27 @@ export const PROJECTS: Project[] = [
     ],
     status: "En production",
   },
+  {
+    slug: "predimaint",
+    name: "PrédiMaint",
+    tagline: "Maintenance prédictive d'un atelier d'usinage par machine learning",
+    description:
+      "À partir des capteurs d'une machine-outil (températures, vitesse, couple, usure de l'outil), l'application prédit la panne, identifie son type, explique sa décision, recommande l'action de maintenance et chiffre le gain pour l'usine. Un projet né de mon expérience de technicien de maintenance, du cahier des charges à l'application en ligne.",
+    highlights: [
+      "85 % des pannes détectées sur des données jamais vues, 76 % d'alertes justifiées",
+      "Variables issues du métier : puissance, écart de température, contrainte de l'outil",
+      "Chaque prédiction expliquée, avec l'action de maintenance recommandée",
+      "Étude économique : −73 % de coût de maintenance (hypothèses modifiables)",
+    ],
+    tags: ["Python", "pandas", "scikit-learn", "Machine learning", "Streamlit", "Altair", "pytest"],
+    image: "/images/projects/predimaint-diagnostic.png",
+    imageAlt: "Diagnostic d'une machine dans PrédiMaint : risque de panne, type de panne, action et explication",
+    links: [
+      { label: "Essayer l'appli", href: "https://predimaint.streamlit.app", primary: true },
+      { label: "Code source", href: "https://github.com/richeTchibouanga/PrediMaint" },
+    ],
+    status: "En ligne",
+  },
 ];
 
 // Logos : https://devicon.dev (CDN jsDelivr). `icon: null` → pastille texte.
@@ -114,6 +136,10 @@ export const SKILLS = [
     category: "Données & IA",
     items: [
       { name: "Python", icon: "python/python-original" },
+      { name: "pandas", icon: "pandas/pandas-original" },
+      { name: "scikit-learn", icon: "scikitlearn/scikitlearn-original" },
+      { name: "Machine learning", icon: null },
+      { name: "Streamlit", icon: "streamlit/streamlit-original" },
       { name: "SQL / PostgreSQL", icon: "postgresql/postgresql-original" },
       { name: "Supabase", icon: "supabase/supabase-original" },
       { name: "API OpenAI", icon: null },
@@ -130,6 +156,7 @@ export const SKILLS = [
       { name: "Vercel", icon: "vercel/vercel-original" },
       { name: "Playwright", icon: "playwright/playwright-original" },
       { name: "Vitest", icon: "vitest/vitest-original" },
+      { name: "pytest", icon: "pytest/pytest-original" },
       { name: "Row Level Security", icon: null },
       { name: "OWASP Top 10", icon: null },
     ],
@@ -166,9 +193,10 @@ export const EXPERIENCES = [
     place: "Casablanca",
     points: [
       "Conception, développement et mise en production de LeadFlow, CRM SaaS multi-entreprise.",
+      "Conception de PrédiMaint, application de maintenance prédictive par machine learning, publiée en ligne.",
       "Pratiques professionnelles : cahier des charges, tests automatisés, intégration continue, sécurité et documentation.",
     ],
-    tags: ["Next.js", "Supabase", "Tests", "CI/CD"],
+    tags: ["Next.js", "Supabase", "Python", "Machine learning", "Tests", "CI/CD"],
   },
   {
     period: "12/2020 – 09/2024",
