@@ -7,7 +7,7 @@ export const PROFILE = {
   lastName: "TCHIBOUANGA",
   shortName: "Riche Tchibouanga",
   title: "Développeur Full-Stack & Data / IA",
-  roles: ["Développeur Full-Stack", "Data Engineer en formation", "Passionné d'IA appliquée", "Créateur de LeadFlow"],
+  roles: ["Développeur Full-Stack", "Data Engineer en formation", "Passionné d'IA appliquée", "Créateur de MOSSALA", "Créateur de LeadFlow"],
   location: "Casablanca, Maroc",
   email: "richetchibouanga0@gmail.com",
   github: "https://github.com/richeTchibouanga",
@@ -20,8 +20,8 @@ export const PROFILE = {
 } as const;
 
 export const STATS = [
-  { value: "2", label: "projets en ligne" },
-  { value: "300+", label: "tests automatisés" },
+  { value: "3", label: "projets en ligne" },
+  { value: "450+", label: "tests automatisés" },
   { value: "9", label: "certifications DataCamp" },
 ] as const;
 
@@ -31,6 +31,7 @@ export const ABOUT = {
     "Grâce à une bourse de BHN Academy (Allemagne), je me forme aujourd'hui à l'ingénierie des données et de l'IA. Je mets immédiatement ces compétences en pratique sur des projets réels.",
     "Mon premier produit, LeadFlow, est un CRM SaaS complet : base de données sécurisée, interface responsive, plus de 300 tests automatisés, intégration continue et démo en ligne. La même rigueur qu'en maintenance industrielle, appliquée au logiciel.",
     "Avec PrédiMaint, je relie mes deux métiers : un modèle de machine learning qui prédit les pannes d'un atelier d'usinage, explique ses décisions et chiffre le gain de la maintenance prédictive pour l'usine.",
+    "Avec MOSSALA (« le travail » en lingala), je mets l'IA au service de l'emploi en Afrique : analyse de CV, lettres de motivation et entreprises compatibles avec le profil, avec des garde-fous pour que l'IA n'invente jamais rien sur le candidat.",
   ],
   education: [
     {
@@ -74,6 +75,27 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "mossala",
+    name: "MOSSALA",
+    tagline: "Plateforme d'accompagnement vers l'emploi propulsée par l'IA",
+    description:
+      "Pour les jeunes diplômés et les personnes en reconversion au Maroc, au Congo, au Gabon et au Sénégal : le candidat importe son CV, l'IA en extrait le profil et lui donne un score expliqué, rédige des lettres de motivation adaptées à chaque offre, et lui présente des entreprises classées selon sa compatibilité. Suivi des candidatures inclus. Mené de l'analyse à la mise en ligne.",
+    highlights: [
+      "Garde-fous anti-invention : tout élément extrait doit figurer dans le CV, et une relecture automatique signale chaque phrase de lettre non fondée",
+      "Données protégées : coordonnées masquées avant l'IA, consentement explicite, export et suppression du compte",
+      "Sécurité testée route par route : CSRF, accès aux données d'autrui, limitation des abus (113 tests)",
+      "Annuaire de 88 entreprises réelles, liens officiels vérifiés automatiquement",
+    ],
+    tags: ["Next.js 16", "TypeScript", "FastAPI", "PostgreSQL", "SQLAlchemy", "LLM (Groq)", "pytest", "Playwright", "Vercel", "Neon"],
+    image: "/images/projects/mossala-analyse-cv.png",
+    imageAlt: "Analyse d'un CV fictif dans MOSSALA : score de 78 sur 100, détail par critère et améliorations proposées",
+    links: [
+      { label: "Essayer l'appli", href: "https://mossala-iota.vercel.app", primary: true },
+      { label: "Code source", href: "https://github.com/richeTchibouanga/mossala" },
+    ],
+    status: "En ligne",
+  },
   {
     slug: "leadflow",
     name: "LeadFlow",
@@ -128,6 +150,7 @@ export const SKILLS = [
       { name: "React", icon: "react/react-original" },
       { name: "Next.js", icon: "nextjs/nextjs-original" },
       { name: "Tailwind CSS", icon: "tailwindcss/tailwindcss-original" },
+      { name: "FastAPI", icon: "fastapi/fastapi-original" },
       { name: "HTML5", icon: "html5/html5-original" },
       { name: "CSS3", icon: "css3/css3-original" },
     ],
@@ -145,6 +168,7 @@ export const SKILLS = [
       { name: "API OpenAI", icon: null },
       { name: "Agents IA (smolagents)", icon: null },
       { name: "IA générative & LLM", icon: null },
+      { name: "Intégration de LLM avec garde-fous", icon: null },
     ],
   },
   {
@@ -154,6 +178,7 @@ export const SKILLS = [
       { name: "GitHub", icon: "github/github-original" },
       { name: "GitHub Actions", icon: "githubactions/githubactions-original" },
       { name: "Vercel", icon: "vercel/vercel-original" },
+      { name: "Docker", icon: "docker/docker-original" },
       { name: "Playwright", icon: "playwright/playwright-original" },
       { name: "Vitest", icon: "vitest/vitest-original" },
       { name: "pytest", icon: "pytest/pytest-original" },
@@ -194,9 +219,10 @@ export const EXPERIENCES = [
     points: [
       "Conception, développement et mise en production de LeadFlow, CRM SaaS multi-entreprise.",
       "Conception de PrédiMaint, application de maintenance prédictive par machine learning, publiée en ligne.",
+      "Conception de MOSSALA, plateforme d'accompagnement vers l'emploi avec IA (Next.js, FastAPI, PostgreSQL, LLM), publiée en ligne.",
       "Pratiques professionnelles : cahier des charges, tests automatisés, intégration continue, sécurité et documentation.",
     ],
-    tags: ["Next.js", "Supabase", "Python", "Machine learning", "Tests", "CI/CD"],
+    tags: ["Next.js", "FastAPI", "Supabase", "Python", "Machine learning", "LLM", "Tests", "CI/CD"],
   },
   {
     period: "12/2020 – 09/2024",
